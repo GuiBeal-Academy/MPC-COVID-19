@@ -120,7 +120,7 @@ def wrap(S, I, R, D):
 def plot(t, y, u, discrete=False):
   S, I, R, D = unwrap(y)
 
-  fig, ax = plt.subplots(5, 2, figsize=(20,15), sharex=True)
+  fig, ax = plt.subplots(5, 2, facecolor=(1,1,1,1), figsize=(20,15), sharex=True)
 
   if discrete:
     ds = 'steps-post'
