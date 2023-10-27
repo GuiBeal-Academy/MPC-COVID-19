@@ -171,7 +171,7 @@ print(f'Deceased Total: {sum(D[:,-1]):.0f}')
 ```python
 from scipy.integrate import solve_ivp
 
-def u(t, y, u_max):
+def control(t, y, u_max):
   S, I, R, D = unwrap(y)
   u = np.zeros(n_a)
   remaining = u_max
@@ -196,7 +196,7 @@ print(f'Deceased Total: {sum(D[:,-1]):.0f}')
 ![png](README_files/README_14_0.png)
 
 
-    Deceased Total: 7633
+    Deceased Total: 7616
 
 
 ## Discrete Simulation
