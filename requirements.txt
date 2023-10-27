@@ -1,0 +1,6 @@
+csv
+matplotlib
+nbconvert
+nbformat
+numpy
+scipy
