@@ -22,7 +22,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         jupyter nbconvert --template "pythoncodeblocks.tpl" --ClearMetadataPreprocessor.enabled=True --to markdown README.ipynb
-        jupyter nbconvert --template "pythoncodeblocks.tpl" --ClearMetadataPreprocessor.enabled=True --to pdf README.ipynb
 
     - name: Commit files
       run: |
