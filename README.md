@@ -1,5 +1,7 @@
 # MPC COVID-19
 
+Modelling and simulation of a COVID-19 compartmental system.
+
 ## Modelling
 
 ### Variables
@@ -17,6 +19,7 @@
 | $\gamma_{R,k}$ | Recovery rate for age group $k$             |
 | $\gamma_{D,k}$ | Decease rate for age group $k$              |
 | $n_a$          | Number of age groups                        |
+| $\Delta_t$     | Sampling Period                             |
 
 ### Continous Model
 
