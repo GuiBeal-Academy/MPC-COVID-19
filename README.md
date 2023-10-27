@@ -68,7 +68,8 @@ $$
 
 ### Definitions
 
-``` python
+
+```python
 import numpy as np
 import csv
 
@@ -97,9 +98,13 @@ P_total = sum(P)
 print(f'Population Total: {P_total:.0f}')
 ```
 
+    Population Total: 3645243
+
+
 ### Helpers
 
-``` python
+
+```python
 import matplotlib.pyplot as plt
 
 def unwrap(y):
@@ -160,7 +165,8 @@ def plot(t, y, u, discrete=False):
 
 ### No Vaccination
 
-``` python
+
+```python
 from scipy.integrate import solve_ivp
 
 def u(t, y):
@@ -195,9 +201,17 @@ D_total = sum(D[:,-1])
 print(f'Deceased Total: {D_total:.0f}')
 ```
 
+
+![png](README_files/README_12_0.png)
+
+
+    Deceased Total: 46089
+
+
 ### Vaccination of Older Groups with Exclusivity
 
-``` python
+
+```python
 from scipy.integrate import solve_ivp
 
 def u(t, y):
@@ -238,9 +252,17 @@ D_total = sum(D[:,-1])
 print(f'Deceased Total: {D_total:.0f}')
 ```
 
+
+![png](README_files/README_14_0.png)
+
+
+    Deceased Total: 7633
+
+
 ### Vaccination of Older Groups with Intersection
 
-``` python
+
+```python
 from scipy.integrate import solve_ivp
 
 def u(t, y):
@@ -281,11 +303,19 @@ D_total = sum(D[:,-1])
 print(f'Deceased Total: {D_total:.0f}')
 ```
 
+
+![png](README_files/README_16_0.png)
+
+
+    Deceased Total: 7616
+
+
 ## Discrete Simulation
 
 ### No Vaccination
 
-``` python
+
+```python
 def u(t, y):
   return np.zeros(n_a)
 
@@ -320,9 +350,17 @@ D_total = sum(D[:,-1])
 print(f'Deceased Total: {D_total:.0f}')
 ```
 
+
+![png](README_files/README_19_0.png)
+
+
+    Deceased Total: 47115
+
+
 ### Vaccination of Older Groups
 
-``` python
+
+```python
 def u(t, y):
   S, I, R, D = unwrap(y)
   u = np.zeros(n_a)
@@ -331,7 +369,6 @@ def u(t, y):
     u[i] = min([S[i], remaining])
     remaining = remaining - u[i]
   return u
-
 
 def system(t, y, l, C, g_R, g_D):
   S, I, R, D = unwrap(y)
@@ -363,3 +400,10 @@ plot(t, y, U, discrete=True)
 D_total = sum(D[:,-1])
 print(f'Deceased Total: {D_total:.0f}')
 ```
+
+
+![png](README_files/README_21_0.png)
+
+
+    Deceased Total: 7593
+
