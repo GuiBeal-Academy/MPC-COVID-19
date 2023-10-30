@@ -1,6 +1,7 @@
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
+import casadi
 
 P = np.array([1058304,915796,983789,384803,203035,99516])
 n_a = len(P)
@@ -25,7 +26,10 @@ def definitions():
   return P, I_0, S_0, R_0, D_0, l, C, g_R, g_D, u_max
 
 def wrap(S, I, R, D):
-  return np.concatenate([S, I, R, D])
+  if type(S) is np.ndarray:
+    return np.concatenate([S, I, R, D])
+  if type(S) is casadi.MX:
+    return casadi.vertcat(S, I, R, D)
 
 def unwrap(y):
   S = y[0*n_a:1*n_a]
