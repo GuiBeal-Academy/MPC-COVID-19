@@ -252,3 +252,30 @@ print(f'Deceased Total: {sum(D[:,-1]):.0f}')
 
     Deceased Total: 7593
 
+
+## Optimization
+
+### Definitions
+
+
+```python
+from helpers import *
+from casadi import *
+
+P, I_0, S_0, R_0, D_0, l, C, g_R, g_D, u_max = definitions()
+n_a = len(P)
+
+S = MX.sym('S',n_a)
+I = MX.sym('I',n_a)
+R = MX.sym('R',n_a)
+D = MX.sym('D',n_a)
+U = MX.sym('U',n_a)
+Y = wrap(S,I,R,D)
+
+f = Function('f',[S,I,R,D,U],[
+  S - l * S * (C @ I) - U,
+  I + l * S * (C @ I) - (g_R + g_D) * I,
+  R + g_R * I + U,
+  D + g_D * I,
+],['S','I','R','D','U'],['S+','I+','R+','D+'])
+```
