@@ -23,7 +23,7 @@ def definitions():
 
   u_max = 55191
 
-  return P, I_0, S_0, R_0, D_0, l, C, g_R, g_D, u_max
+  return P, S_0, I_0, R_0, D_0, l, C, g_R, g_D, u_max
 
 def wrap(S, I, R, D):
   if type(S) is np.ndarray:
