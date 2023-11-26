@@ -58,6 +58,7 @@ def recover_control(t, y, u, u_max):
   return u_
 
 def plot(t, y, u, discrete=False):
+  fontsize = 'x-large'
   groups = ['[0,25)', '[25,45)', '[45,65)', '[65,75)', '[75,85)', '85+']
   assert(len(groups) )
 
@@ -86,19 +87,19 @@ def plot(t, y, u, discrete=False):
   ax[4,1].stackplot(t, u, step=step)
 
   for i in range(2):
-    ax[0,i].set_ylabel('Susceptibles')
-    ax[1,i].set_ylabel('Infected')
-    ax[2,i].set_ylabel('Recovered')
-    ax[3,i].set_ylabel('Deceased')
-    ax[4,i].set_ylabel('Vaccination Rate')
+    ax[0,i].set_ylabel('Susceptibles'    , fontsize=fontsize)
+    ax[1,i].set_ylabel('Infected'        , fontsize=fontsize)
+    ax[2,i].set_ylabel('Recovered'       , fontsize=fontsize)
+    ax[3,i].set_ylabel('Deceased'        , fontsize=fontsize)
+    ax[4,i].set_ylabel('Vaccination Rate', fontsize=fontsize)
 
   for ax_ in ax.flatten():
     ax_.set_xlim((t[0],t[-1]))
     ax_.grid()
 
   for ax_ in ax[-1,:]:
-    ax_.set_xlabel('time')
+    ax_.set_xlabel('time', fontsize=fontsize)
 
   fig.tight_layout()
-  fig.legend(groups, title='Age Group',ncols=n_a, loc="upper center", bbox_to_anchor=(0.5, 0))
+  fig.legend(groups, title='Age Group', fontsize=fontsize, title_fontsize=fontsize, ncols=n_a, loc="upper center", bbox_to_anchor=(0.5, 0))
   plt.show()
